@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'navigation/main_shell.dart';
+import 'package:provider/provider.dart';
+
+import 'app/verdex_app.dart';
+import 'providers/auth_provider.dart';
+import 'services/api_service.dart';
+import 'services/auth_service.dart';
 
 void main() {
-  runApp(const VerdexApp());
-}
-
-class VerdexApp extends StatelessWidget {
-  const VerdexApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-
-      title: 'VERDEX',
-
-      theme: ThemeData(
-        fontFamily: 'Arial',
-        scaffoldBackgroundColor: const Color(0xFFF5F7F4),
-      ),
-
-      home: const MainShell(),
-    );
-  }
+  WidgetsFlutterBinding.ensureInitialized();
+  final api = ApiService();
+  final auth = AuthService(api);
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<ApiService>.value(value: api),
+        Provider<AuthService>.value(value: auth),
+        ChangeNotifierProvider(
+          create: (_) => AuthProvider(auth, api)..bootstrap(),
+        ),
+      ],
+      child: const VerdexApp(),
+    ),
+  );
 }

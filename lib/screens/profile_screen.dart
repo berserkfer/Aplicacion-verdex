@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
 
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 12,
             ),
           ],
@@ -118,7 +118,7 @@ class ProfileScreen extends StatelessWidget {
                       height: 95,
 
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         shape: BoxShape.circle,
                       ),
 
@@ -222,7 +222,7 @@ class ProfileScreen extends StatelessWidget {
 
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.04),
+                      color: Colors.black.withValues(alpha: 0.04),
                       blurRadius: 10,
                     ),
                   ],

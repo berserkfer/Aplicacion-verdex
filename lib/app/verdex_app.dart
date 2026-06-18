@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../navigation/main_shell.dart';
+import '../screens/auth/auth_gate.dart';
 import '../theme/app_theme.dart';
 
 class VerdexApp extends StatelessWidget {
@@ -9,10 +9,10 @@ class VerdexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'VERDEX',
+      title: 'Verdex App',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      home: const MainShell(),
+      home: const AuthGate(),
     );
   }
 }

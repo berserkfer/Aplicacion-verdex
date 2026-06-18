@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
 
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 20,
               offset: const Offset(0, 8),
             ),
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               height: 72,
 
               decoration: BoxDecoration(
-                color: color.withOpacity(0.12),
+                color: color.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(22),
               ),
 
@@ -170,30 +170,24 @@ class HomeScreen extends StatelessWidget {
 
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.green.withOpacity(0.28),
+                        color: Colors.green.withValues(alpha: 0.28),
                         blurRadius: 28,
                         offset: const Offset(0, 10),
                       ),
                     ],
                   ),
 
-                  child: Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
-
-                    children: const [
-
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Row(
                         children: [
-
                           Icon(
                             Icons.eco,
                             color: Colors.white,
                             size: 42,
                           ),
-
                           SizedBox(width: 12),
-
                           Text(
                             'VERDEX',
                             style: TextStyle(
@@ -204,9 +198,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-
                       SizedBox(height: 18),
-
                       Text(
                         'Recicla smarter. Vive mejor.',
                         style: TextStyle(

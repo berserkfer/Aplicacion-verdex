@@ -51,7 +51,7 @@ class AiScreen extends StatelessWidget {
 
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.green.withOpacity(0.25),
+                      color: Colors.green.withValues(alpha: 0.25),
                       blurRadius: 30,
                       offset: const Offset(0, 15),
                     ),

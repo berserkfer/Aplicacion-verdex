@@ -1,16 +1,29 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
 import 'package:verdex/app/verdex_app.dart';
+import 'package:verdex/providers/auth_provider.dart';
+import 'package:verdex/services/api_service.dart';
+import 'package:verdex/services/auth_service.dart';
 
 void main() {
-  testWidgets('Home shows welcome message', (WidgetTester tester) async {
-    await tester.pumpWidget(const VerdexApp());
-    await tester.pumpAndSettle();
+  testWidgets('Shows login screen', (WidgetTester tester) async {
+    final api = ApiService();
+    final auth = AuthService(api);
 
-    expect(find.text('Bienvenido a VERDEX'), findsOneWidget);
-    expect(
-      find.text('Recicla y ayuda al medio ambiente en Chiclayo'),
-      findsOneWidget,
+    await tester.pumpWidget(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (_) => AuthProvider(auth, api),
+          ),
+        ],
+        child: const VerdexApp(),
+      ),
     );
+    await tester.pump();
+
+    expect(find.text('Verdex App'), findsOneWidget);
+    expect(find.text('Iniciar sesión'), findsOneWidget);
   });
 }

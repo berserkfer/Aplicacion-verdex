@@ -13,8 +13,8 @@ class RecyclingPointsScreen extends StatelessWidget {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        SliverAppBar.large(
-          title: const Text('Puntos de reciclaje'),
+        const SliverAppBar.large(
+          title: Text('Puntos de reciclaje'),
           backgroundColor: AppTheme.softBackground,
         ),
         SliverToBoxAdapter(

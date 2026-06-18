@@ -83,7 +83,7 @@ class _AiScreenState extends State<AiScreen> {
 
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.green.withOpacity(0.25),
+                            color: Colors.green.withValues(alpha: 0.25),
                             blurRadius: 35,
                             spreadRadius: 4,
                             offset: const Offset(0, 12),
@@ -152,11 +152,11 @@ class _AiScreenState extends State<AiScreen> {
                           ],
                         ),
 
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Colors.greenAccent,
                             blurRadius: 16,
-                            offset: const Offset(0, 8),
+                            offset: Offset(0, 8),
                           ),
                         ],
                       ),
@@ -202,7 +202,7 @@ class _AiScreenState extends State<AiScreen> {
 
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.05),
+                              color: Colors.black.withValues(alpha: 0.05),
                               blurRadius: 14,
                             ),
                           ],
